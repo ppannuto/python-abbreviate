@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
 import sys, os, glob, re
+from pkg_resources import resource_stream
 
 import enchant
 
 from structures import CaseInsensitiveDict
 
 class Abbreviate(object):
+	ABBR_RESOUCE_PATH = 'abbreviate.resources.abbreviations'
+
 	class AbbreviateError(Exception):
 		"""Base class for abbreviate-specific errors."""
 		pass
@@ -21,7 +24,7 @@ class Abbreviate(object):
 		for l in lang:
 			self.dicts.append(enchant.Dict(l))
 
-		for f in map(open, map(lambda x: x+'.abbr', lang)):
+		for f in map(lambda z: resource_stream(Abbreviate.ABBR_RESOUCE_PATH, z), map(lambda x: x+'.abbr', lang)):
 			for l in f:
 				l = l.strip()
 				if len(l) == 0 or l[0] == '#':
@@ -91,7 +94,7 @@ class Abbreviate(object):
 		specified, this argument is ignored.
 		'''
 		if target_len is None:
-			return ' '.join(map(self.basic_known, s.split()))
+			return ' '.join(map(self.basic_known, string.split()))
 
 		if try_harder or no_matter_what:
 			raise NotImplementedError
