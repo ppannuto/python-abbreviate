@@ -1,0 +1,33 @@
+# Dictionary of abbreviations
+
+# Entries are one per line. Each entry has the following categories:
+#
+#   Unabbreviated word or phrase
+#   Preferred abbreviation(s)
+#   Other common abbreviations
+#   Last-choice abbreviations
+#
+# Categories are separated by || and entries by |
+
+# All entries are assumed case-insensitive and will preserve the original case
+# unless otherwise specified (somehow)
+
+Monday          || Mon  || Mo           || M
+Tuesday         || Tue  || Tues | Tu    || T
+Wednesday       || Wed  || We           || W
+Thursday        || Thu  || Thurs | Thur | Th    || R
+Friday          || Fri  || Fr           || F
+Saturday        || Sat  || Sa           || S
+Sunday          || Sun  || Su           || S
+January         || Jan  ||              || J
+February        || Feb  ||              || F
+March           || Mar  ||              || M
+April           || Apr  ||              || A
+May             ||      ||              || M
+June            || Jun  ||              || J
+July            || Jul  ||              || J
+August          || Aug  ||              || A
+September       || Sep  || Sept         || S
+October         || Oct  ||              || O
+November        || Nov  ||              || N
+December        || Dec  ||              || D
