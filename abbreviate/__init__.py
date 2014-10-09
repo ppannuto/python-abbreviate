@@ -29,10 +29,10 @@ class Abbreviate(object):
 
 		for f in map(lambda z: resource_stream(Abbreviate.ABBR_RESOUCE_PATH, z), map(lambda x: x+'.abbr', lang)):
 			for l in f:
-				l = l.strip()
+				l = l.strip().decode('utf-8')
 				if len(l) == 0 or l[0] == '#':
 					continue
-				m = map(lambda x: map(lambda y: y.strip(), x.split('|')), l.split('||'))
+				m = list(map(lambda x: list(map(lambda y: y.strip(), x.split('|'))), l.split('||')))
 				if len(m[0]) != 1:
 					raise ParseError(l)
 				self.known[m[0][0]] = m[1:]
