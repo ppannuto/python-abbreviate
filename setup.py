@@ -7,7 +7,7 @@ def readme():
 	with open('README.rst') as f:
 		return f.read()
 
-from abbreviate import __version__
+exec(open(os.path.join('abbreviate', 'version.py')).read())
 
 requires = [
 		'pyenchant',

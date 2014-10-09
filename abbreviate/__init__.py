@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __all__ = ['abbreviate']
-__version__ = '0.1.0'
+from .version import __version__
 
 import sys, os, glob, re
 from pkg_resources import resource_stream
