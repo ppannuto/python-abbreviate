@@ -13,10 +13,23 @@ requires = [
 		'pyenchant',
 		]
 
-setup(name='abbreviate',
+setup(
+		name='abbreviate',
 		version=__version__,
+		#
+		packages=find_packages(exclude=['tests']),
+		package_data={'': ['*.abbr']},
+		#
 		description="Automatically abbreviate text",
 		long_description=readme(),
+		#
+		url="https://github.com/ppannuto/python-abbreviate",
+		#
+		author="Pat Pannuto",
+		author_email="pat.pannuto+abbreviate@gmail.com",
+		#
+		license="MIT",
+		#
 		classifiers=[
 			"Development Status :: 3 - Alpha",
 			"Intended Audience :: Developers",
@@ -25,16 +38,15 @@ setup(name='abbreviate',
 			"Natural Language :: English",
 			"Topic :: Text Processing :: Filters",
 			],
+		#
 		keywords='string formatting',
-		author="Pat Pannuto",
-		author_email="pat.pannuto+abbreviate@gmail.com",
-		url="https://github.com/ppannuto/python-abbreviate",
-		license="MIT",
-		packages=find_packages(),
-		package_data={'': ['*.abbr']},
+		#
+		install_requires=requires,
 		include_package_data=True,
 		zip_safe=False,
-		install_requires=requires,
+		#
+		test_suite='abbreviate.tests',
+		#
 		#entry_points = {
 		#    'console_scripts':['abbreviate = abbreviate:console']
 		#},
