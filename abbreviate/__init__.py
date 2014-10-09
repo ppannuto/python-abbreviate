@@ -99,8 +99,13 @@ class Abbreviate(object):
 		if target_len is None:
 			return ' '.join(map(self.basic_known, string.split()))
 
+		if len_fn(string) < target_len:
+			return string
+
 		if try_harder or no_matter_what:
 			raise NotImplementedError
+
+		#print("Request to abbreviate: {} to len {}".format(string, target_len))
 
 		working = str(string)
 		tokens = self.tokenize(working)
