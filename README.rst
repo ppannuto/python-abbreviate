@@ -20,7 +20,7 @@ shorten any exisiting abbreviations (e.g. Thur -> Th), assuming that any
 explicit abbreviation was passed as such for a reason.
 
 Issues, updates, pull requests, etc should be directed
-`to github <https://github.com/ppannuto/python-abbreviate`__.
+`to github <https://github.com/ppannuto/python-abbreviate>`_.
 
 
 State
@@ -43,4 +43,22 @@ The easiest method is to simply use pip:
 Usage
 -----
 
-TODO
+.. code-block:: python
+
+ >>> import abbreviate
+ >>> abbr = abbreviate.Abbreviate()
+ 
+ >>> abbr.abbreviate("This library does nothing without pressure to make shorter")
+ 'This library does nothing without pressure to make shorter'
+ 
+ >>> abbr.abbreviate("By default, it will treat length as simple character count", 20)
+ 'By dflt, it wll trt lngth as smple chrctr cnt'
+ 
+ >>> from reportlab.lib.units import inch
+ >>> from reportlab.pdfgen import canvas
+ >>> from reportlab.lib.pagesizes import letter
+ >>> c = canvas.Canvas('/tmp/example.pdf', pagesize=letter)
+ >>> def calculate_rendered_length(text):
+ ...     return c.stringWidth(text, "Helvetica", 8)
+ >>> abbr.abbreviate("A custom length function is useful for rendered text", target_len=2.5*inch, len_fn=calculate_rendered_length)
+ 'A cstm length function is useful for rendered text'
